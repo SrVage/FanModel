@@ -11,7 +11,7 @@ namespace Client {
     sealed class EcsStartup : MonoBehaviour
     {
         [SerializeField] private MonoBehaviourEntity[] _entities;
-        
+        [SerializeField] private float _mouseSensetivity;
         EcsWorld _world;
         EcsSystems _systems;
         
@@ -28,6 +28,7 @@ namespace Client {
             _systems
                 .Add (new InitialSceneSystem(_entities))
                 .Add(new MouseClickHandlerSystem())
+                .Add(new MouseRightClickHandlerSystem(_mouseSensetivity))
                 .Add(new FanToggleSystem())
                 .Add (new FanRotatingSystem())
                 
