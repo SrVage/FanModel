@@ -2,9 +2,10 @@
 
 namespace Client.Components
 {
-	public struct RotationComponent
+	public struct SideRotationComponent
 	{
 		public Transform RotationTransform;
-		public Vector3 Speed;
+		public float Speed;
+		public float BorderAngle;
 	}
 }

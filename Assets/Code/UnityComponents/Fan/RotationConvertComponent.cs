@@ -7,7 +7,7 @@ namespace Code.UnityComponents.Fan
 {
 	public class RotationConvertComponent:BaseConvertComponent
 	{
-		[SerializeField] private Vector3 _speed;
+		[SerializeField] private float _speed;
 		public override EcsEntity Initial(EcsEntity entity)
 		{
 			entity.Get<RotationComponent>().RotationTransform = transform;

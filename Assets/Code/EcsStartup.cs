@@ -31,6 +31,8 @@ namespace Client {
                 .Add(new MouseRightClickHandlerSystem(_mouseSensetivity))
                 .Add(new FanToggleSystem())
                 .Add (new FanRotatingSystem())
+                .Add(new SideRotateToggleSystem())
+                .Add (new FanSideRotatingSystem())
                 
                 // register one-frame components (order is important), for example:
                 .OneFrame<IsTriggeredTag> ()

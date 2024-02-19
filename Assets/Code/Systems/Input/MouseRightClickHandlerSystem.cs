@@ -30,8 +30,8 @@ namespace Client.Systems.Input
 					foreach (var cdx in _camera)
 					{
 						ref var camera = ref _camera.Get1(cdx).Transform;
-						transform.RotateAround(transform.position, 
-							new Vector3(_previousPoint.y-UnityEngine.Input.mousePosition.y, _previousPoint.x-UnityEngine.Input.mousePosition.x, 0), 
+						camera.RotateAround(transform.position, 
+							new Vector3(UnityEngine.Input.mousePosition.y-_previousPoint.y, UnityEngine.Input.mousePosition.x-_previousPoint.x, 0), 
 							Vector3.Distance(UnityEngine.Input.mousePosition, _previousPoint)*Time.deltaTime*_mouseSensitivity);
 						_previousPoint = UnityEngine.Input.mousePosition;
 					}

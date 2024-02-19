@@ -15,7 +15,7 @@ namespace Client.Systems.Rotating
 			{
 				ref var transform = ref _rotating.Get1(rdx).RotationTransform;
 				ref var speed = ref _rotating.Get1(rdx).Speed;
-				transform.Rotate(speed*Time.deltaTime);
+				transform.Rotate(Vector3.forward*speed*Time.deltaTime);
 			}
 		}
 	}
