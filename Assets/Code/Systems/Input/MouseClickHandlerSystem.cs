@@ -7,10 +7,13 @@ namespace Client.Systems.Input
 	internal sealed class MouseClickHandlerSystem:IEcsRunSystem
 	{
 		private readonly Camera _camera;
-		private readonly int _layerMask = LayerMask.NameToLayer("Raycast");
+		private readonly int _layerMask;
 
-		public MouseClickHandlerSystem() => 
+		public MouseClickHandlerSystem()
+		{
 			_camera = Camera.main;
+			_layerMask = 1 << LayerMask.NameToLayer("RaycastClick");
+		}
 
 		public void Run()
 		{

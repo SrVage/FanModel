@@ -10,9 +10,6 @@ namespace Code.Abstract
     {
         [SerializeField] protected BaseConvertComponent[] _baseComponents;
 
-        private void OnValidate() => 
-            _baseComponents = GetComponentsInChildren<BaseConvertComponent>();
-
         public virtual EcsEntity Initial(EcsWorld world)
         { 
             EcsEntity entity = world.NewEntity();

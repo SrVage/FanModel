@@ -4,6 +4,7 @@ using Client.Systems.Input;
 using Client.Systems.Interactable;
 using Client.Systems.Rotating;
 using Code.Abstract;
+using Code.UnityComponents;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Client {
     {
         [SerializeField] private MonoBehaviourEntity[] _entities;
         [SerializeField] private float _mouseSensetivity;
+        [SerializeField] private TipUI _tipUI;
         EcsWorld _world;
         EcsSystems _systems;
         
@@ -29,18 +31,16 @@ namespace Client {
                 .Add (new InitialSceneSystem(_entities))
                 .Add(new MouseClickHandlerSystem())
                 .Add(new MouseRightClickHandlerSystem(_mouseSensetivity))
+                .Add(new CameraScaleSystem())
                 .Add(new FanToggleSystem())
                 .Add (new FanRotatingSystem())
                 .Add(new SideRotateToggleSystem())
                 .Add (new FanSideRotatingSystem())
+                .Add(new TipHandlerSystem())
                 
-                // register one-frame components (order is important), for example:
                 .OneFrame<IsTriggeredTag> ()
-                // .OneFrame<TestComponent2> ()
-                
-                // inject service instances here (order doesn't important), for example:
-                // .Inject (new CameraService ())
-                // .Inject (new NavMeshSupport ())
+
+                .Inject (_tipUI)
                 .Init ();
         }
 
